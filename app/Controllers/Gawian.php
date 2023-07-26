@@ -15,4 +15,29 @@ class Gawian extends BaseController
          ];
         return view('Gawianfolder/get',$data);
     }
+
+    public function create()  {
+        $data = [
+            'title' => 'Gawian Page'
+         ];
+        return view('Gawianfolder/form',$data);
+    }
+
+    public function store()  {
+        //get data cara pertama
+        //  $data = $this->request->getPost();
+
+         //get data cara kedua
+        $data = [
+           'name' => $this->request->getPost('name'),
+           'description' => $this->request->getPost('description')
+        ];
+
+
+         $this->db->table('gawi')->insert($data);
+
+         if ($this->db->affectedRows() > 0) {
+            return redirect()->to('Gawian')->with('success','success saved');
+         }
+    }
 }

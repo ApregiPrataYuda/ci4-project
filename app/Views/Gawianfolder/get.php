@@ -17,13 +17,32 @@
       </div><!-- /.container-fluid -->
     </section>
 
+
+    <?php if (session()->getFlashdata('success')) : ?>
+      <div class="alert alert-success alert-dismissible fade show ml-3 mr-3" role="alert">
+        <strong><?= session()->getFlashdata('success')?> </strong> 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    <?php endif; ?>
+
+    <?php if (session()->getFlashdata('error')) : ?>
+      <div class="alert alert-danger alert-dismissible fade show ml-3 mr-3" role="alert">
+        <strong><?= session()->getFlashdata('error')?> </strong> 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    <?php endif; ?>
+    
     <!-- Main content -->
     <section class="content">
-
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title"><?= $title ?></h3>
+          <!-- <h3 class="card-title"><?= $title ?></h3> -->
+          <a href="<?= site_url('Gawian/Add')?>" class="btn btn-sm btn-secondary"><i class="fa fa-plus"></i></a>
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">

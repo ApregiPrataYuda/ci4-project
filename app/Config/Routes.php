@@ -42,6 +42,8 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 $routes->get('Users', 'User::index');
 $routes->get('Gawian', 'Gawian::index');
+$routes->get('Gawian/Add', 'Gawian::create');
+$routes->post('Gawian', 'Gawian::store');
 
 /*
  * --------------------------------------------------------------------
